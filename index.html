@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentStreak — Daily on-chain check-in for Agent ID holders</title>
+<meta name="description" content="AgentStreak: a daily on-chain check-in for Binance Agent ID (.ai name) holders on BNB Chain. Streaks only — no token, no rewards, no yields.">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/ethers@6/dist/ethers.min.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">🔥 AgentStreak</div>
+  <button id="connectBtn" class="btn primary">Connect Wallet</button>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Daily on-chain check-in for Agent ID holders</h1>
+    <p>Hold a Binance Agent ID (<code>.ai</code> name) and check in once a day on BNB Chain.
+       Build your streak. That's it — no token, no rewards, no yields, no promised returns.</p>
+    <p id="networkStatus" class="muted">Not connected. Connect your wallet to see your streak.</p>
+  </section>
+
+  <section id="walletCard" class="card hidden">
+    <h2>Your Agent ID</h2>
+    <p>Wallet: <code id="walletAddress">—</code></p>
+    <p>Agent ID: <span id="handleDisplay">—</span></p>
+    <p id="holderStatus" class="muted">Checking…</p>
+    <p id="wrongNetwork" class="warn hidden">You are on the wrong network.
+      <button id="switchNetworkBtn" class="btn">Switch to <span id="switchNetworkName">BSC Testnet</span></button>
+    </p>
+  </section>
+
+  <section id="streakCard" class="card hidden">
+    <h2>Your streak</h2>
+    <div class="stats">
+      <div class="stat"><span class="num" id="statCurrent">—</span><span class="label">Current streak (days)</span></div>
+      <div class="stat"><span class="num" id="statBest">—</span><span class="label">Best streak (days)</span></div>
+      <div class="stat"><span class="num" id="statTotal">—</span><span class="label">Total check-ins</span></div>
+      <div class="stat"><span class="num" id="statLast">—</span><span class="label">Last check-in (UTC)</span></div>
+    </div>
+    <button id="checkInBtn" class="btn primary big" disabled>Check In</button>
+    <p id="checkInHint" class="muted">Connect your wallet first.</p>
+    <p id="txStatus" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>🏆 Leaderboard — Top 10 by best streak</h2>
+    <p id="leaderboardStatus" class="muted">Loading…</p>
+    <ol id="leaderboard" class="leaderboard"></ol>
+    <p class="muted small">Built from on-chain <code>CheckIn</code> events over the last ~200,000 blocks.
+       Data refreshes when the page loads.</p>
+  </section>
+
+  <section class="card">
+    <h2>FAQ</h2>
+    <details>
+      <summary>What is an Agent ID?</summary>
+      <p>An Agent ID is a <code>.ai</code> name (for example <code>octafx.ai</code>) issued through the
+         Binance Wallet Agentic Wallet system. It identifies an AI agent on BNB Chain.
+         AgentStreak reads the on-chain Agent ID registry to confirm you hold one.</p>
+    </details>
+    <details>
+      <summary>What does checking in cost?</summary>
+      <p>Check-ins are free except for the network gas fee on BNB Chain. There is no
+         mint price, no subscription, and no fee paid to AgentStreak.</p>
+    </details>
+    <details>
+      <summary>Are there rewards, tokens, or yields?</summary>
+      <p><strong>No.</strong> AgentStreak has no token, no rewards, no points with monetary
+         value, no yields, and no promised returns of any kind. Your streak is a
+         public on-chain record and nothing more.</p>
+    </details>
+    <details>
+      <summary>How do streaks work?</summary>
+      <p>You may check in once per UTC day. Checking in on consecutive days increases
+         your current streak by one. If you miss a day, your current streak resets
+         to one on your next check-in, but your best streak is kept. Your total
+         check-in count never resets.</p>
+    </details>
+    <details>
+      <summary>Do I need to sign in with a QR code or give you my seed phrase?</summary>
+      <p><strong>Never.</strong> AgentStreak only talks to the wallet already installed in
+         your browser (for example Binance Wallet or MetaMask) through
+         <code>window.ethereum</code>. It never asks for a seed phrase, private key,
+         or pairing code, and there is no QR-code login.</p>
+    </details>
+    <details>
+      <summary>What data does this site collect?</summary>
+      <p>None. There are no tracking scripts and no analytics. The page only reads
+         public BNB Chain data (via the public BSC RPC) and the small
+         <code>config.json</code> file that ships with the site.</p>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <p>
+    <a id="contractLink" href="#" target="_blank" rel="noopener">Contract on BscScan</a> ·
+    <a id="repoLink" href="https://github.com/Yosep55/agent-streak" target="_blank" rel="noopener">GitHub</a> ·
+    <a href="https://www.binance.com/en/support/announcement/detail/95f5dbe0ea674a48a739b59e046648bf" target="_blank" rel="noopener">Binance Agent ID Hackathon announcement</a>
+  </p>
+  <p class="muted small">AgentStreak — built for the Binance Agent ID Hackathon. Streaks only. No token, no rewards, no yields.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
