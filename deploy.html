@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deploy AgentStreak — BNB Chain</title>
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;max-width:640px;margin:24px auto;padding:0 16px;line-height:1.5;color:#111}
+code{word-break:break-all;background:#f0f0f0;padding:1px 4px;border-radius:4px}
+button{display:block;width:100%;padding:14px;margin:12px 0;font-size:17px;border:0;border-radius:10px;background:#f0b90b;color:#111;font-weight:700}
+button:disabled{opacity:.45}
+#status{border:1px solid #ccc;border-radius:10px;padding:12px;background:#fafafa}
+#log{white-space:pre-wrap;word-break:break-all;background:#111;color:#0f0;padding:12px;border-radius:10px;font-size:13px;min-height:60px}
+.warn{color:#b00020}
+</style>
+</head>
+<body>
+<h1>Deploy AgentStreak</h1>
+<p>Kontrak check-in harian AgentStreak (Binance Agent ID Hackathon). Halaman ini men-deploy kontrak dari Binance Web3 Wallet kamu.</p>
+<ul>
+<li>Wallet deploy: <code>0x315d766ad2734F8Fb6c1aa7372AfF1bAb13C3582</code></li>
+<li>Registry Agent ID (constructor): <code>0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F</code></li>
+<li>Chain: BNB Smart Chain (56)</li>
+<li>Value: 0 BNB. Fee perkiraan: ~0.000025 BNB (batas maks 0.00019 BNB).</li>
+<li>Alamat kontrak perkiraan (nonce 9): <code>0xfFc376504Bdf7F1285CB2c4799c182eE32515a83</code> — alamat sebenarnya ada di receipt setelah deploy.</li>
+</ul>
+<p><b>Yang terjadi:</b> halaman ini hanya mengirim <b>1 transaksi pembuatan kontrak</b> (value 0). Wallet akan menampilkan detail transaksi sebelum kamu konfirmasi — periksa alamat wallet dan fee di sana. Jangan tutup halaman ini sampai receipt muncul.</p>
+<div id="status">Buka halaman ini di browser dalam aplikasi Binance (Web3 Wallet).</div>
+<button id="btnConnect">1. Hubungkan Wallet</button>
+<button id="btnDeploy" disabled>2. Deploy Kontrak</button>
+<pre id="log"></pre>
+<script>
+var DEPLOY_DATA = "0x60a060405234801561000f575f80fd5b5060405161090c38038061090c83398101604081905261002e91610099565b6001600160a01b0381166100885760405162461bcd60e51b815260206004820152601860248201527f52656769737472792061646472657373206973207a65726f0000000000000000604482015260640160405180910390fd5b6001600160a01b03166080526100c6565b5f602082840312156100a9575f80fd5b81516001600160a01b03811681146100bf575f80fd5b9392505050565b6080516108136100f95f395f818160e401528181610192015281816103a701528181610439015261050901526108135ff3fe608060405234801561000f575f80fd5b506004361061007a575f3560e01c80637b103999116100585780637b103999146100df578063828e1ffd1461011e578063c483da221461013d578063c8d837cb1461015c575f80fd5b8063183ff0851461007e5780635c45f739146100885780636f77926b146100ba575b5f80fd5b61008661017b565b005b6100a76100963660046105d0565b60016020525f908152604090205481565b6040519081526020015b60405180910390f35b6100cd6100c83660046105d0565b61042f565b6040516100b19695949392919061064a565b6101067f000000000000000000000000000000000000000000000000000000000000000081565b6040516001600160a01b0390911681526020016100b1565b6100a761012c3660046105d0565b60036020525f908152604090205481565b6100a761014b3660046105d0565b5f6020819052908152604090205481565b6100a761016a3660046105d0565b60026020525f908152604090205481565b6040516370a0823160e01b81523360048201525f907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316906370a0823190602401602060405180830381865afa1580156101df573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906102039190610687565b1161024e5760405162461bcd60e51b81526020600482015260166024820152752737ba1030b71020b3b2b73a1024a2103437b63232b960511b60448201526064015b60405180910390fd5b5f61025c62015180426106b2565b335f908152602081905260409020549091508190036102bd5760405162461bcd60e51b815260206004820152601860248201527f416c726561647920636865636b656420696e20746f64617900000000000000006044820152606401610245565b5f6102c96001836106d1565b335f90815260208190526040902054146102e45760016102ff565b335f908152600160208190526040909120546102ff916106ea565b335f90815260208181526040808320869055600180835281842085905560039092528220805493945090929091906103389084906106ea565b9091555050335f9081526002602052604090205481111561036557335f9081526002602052604090208190555b604051633142854560e21b81523360048201819052907f78ecec42a9bdf32afc54e16e92dfe5e433464e370aeabd34e81dee106da09350906001600160a01b037f0000000000000000000000000000000000000000000000000000000000000000169063c50a1514906024015f60405180830381865afa1580156103eb573d5f803e3d5ffd5b505050506040513d5f823e601f3d908101601f191682016040526104129190810190610711565b8484604051610423939291906107b9565b60405180910390a25050565b60605f805f805f807f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03166370a08231896040518263ffffffff1660e01b815260040161049291906001600160a01b0391909116815260200190565b602060405180830381865afa1580156104ad573d5f803e3d5ffd5b505050506040513d601f19601f820116820180604052508101906104d19190610687565b116104ea5760405180602001604052805f815250610574565b604051633142854560e21b81526001600160a01b0388811660048301527f0000000000000000000000000000000000000000000000000000000000000000169063c50a1514906024015f60405180830381865afa15801561054d573d5f803e3d5ffd5b505050506040513d5f823e601f3d908101601f191682016040526105749190810190610711565b6001600160a01b0388165f9081526001602090815260408083205460028352818420546003845282852054938590529190932054939950919750909550935091506105c262015180426106b2565b821415905091939550919395565b5f602082840312156105e0575f80fd5b81356001600160a01b03811681146105f6575f80fd5b9392505050565b5f5b838110156106175781810151838201526020016105ff565b50505f910152565b5f81518084526106368160208601602086016105fd565b601f01601f19169290920160200192915050565b60c081525f61065c60c083018961061f565b602083019790975250604081019490945260608401929092526080830152151560a090910152919050565b5f60208284031215610697575f80fd5b5051919050565b634e487b7160e01b5f52601160045260245ffd5b5f826106cc57634e487b7160e01b5f52601260045260245ffd5b500490565b818103818111156106e4576106e461069e565b92915050565b808201808211156106e4576106e461069e565b634e487b7160e01b5f52604160045260245ffd5b5f60208284031215610721575f80fd5b815167ffffffffffffffff80821115610738575f80fd5b818401915084601f83011261074b575f80fd5b81518181111561075d5761075d6106fd565b604051601f8201601f19908116603f01168101908382118183101715610785576107856106fd565b8160405282815287602084870101111561079d575f80fd5b6107ae8360208301602088016105fd565b979650505050505050565b606081525f6107cb606083018661061f565b6020830194909452506040015291905056fea264697066735822122046dbea17fa9c5730c567e385525c8b89acc301d420c5ec417efd47b511ad606b64736f6c6343000818003300000000000000000000000060b9262456de011f7d15a54cdd8c48baaa8b022f";
+var EXPECTED_WALLET = "0x315d766ad2734f8fb6c1aa7372aff1bab13c3582";
+var FEE_CAP_WEI = 190000000000000n; // 0.00019 BNB
+var BSC_CHAIN_ID = "0x38";
+var account = null;
+
+function $(id){ return document.getElementById(id); }
+function log(msg){ $("log").textContent += msg + "
+"; }
+function setStatus(msg){ $("status").textContent = msg; }
+function rpc(method, params){ return window.ethereum.request({method: method, params: params || []}); }
+
+async function connect(){
+  try{
+    if(!window.ethereum){ setStatus("Wallet tidak terdeteksi. Buka halaman ini di browser dalam aplikasi Binance (Web3 Wallet), bukan di browser biasa."); return; }
+    setStatus("Meminta koneksi wallet...");
+    var accounts = await rpc("eth_requestAccounts");
+    account = accounts[0];
+    log("Wallet: " + account);
+    if(account.toLowerCase() !== EXPECTED_WALLET){
+      setStatus("STOP: wallet yang terhubung bukan 0x315d... Jangan lanjut. Alamat yang terhubung: " + account);
+      return;
+    }
+    var chainId = await rpc("eth_chainId");
+    if(chainId !== BSC_CHAIN_ID){
+      setStatus("Chain bukan BNB (56). Meminta pindah chain...");
+      await rpc("wallet_switchEthereumChain", [{chainId: BSC_CHAIN_ID}]);
+      chainId = await rpc("eth_chainId");
+      if(chainId !== BSC_CHAIN_ID){ setStatus("Gagal pindah ke BNB Chain (56)."); return; }
+    }
+    var nonce = await rpc("eth_getTransactionCount", [account, "latest"]);
+    log("Chain: BNB Smart Chain (56). Nonce wallet: " + parseInt(nonce, 16) + " (alamat kontrak perkiraan dihitung dari nonce 9).");
+    setStatus("Wallet terhubung: " + account + " — siap deploy.");
+    $("btnDeploy").disabled = false;
+  }catch(e){
+    setStatus("Gagal connect: " + (e && e.message ? e.message : e));
+    log("Error: " + JSON.stringify(e));
+  }
+}
+
+async function deploy(){
+  try{
+    if(!account){ setStatus("Hubungkan wallet dulu (tombol 1)."); return; }
+    $("btnDeploy").disabled = true;
+    setStatus("Menghitung fee...");
+    var gas = await rpc("eth_estimateGas", [{from: account, data: DEPLOY_DATA}]);
+    var gasPrice = await rpc("eth_gasPrice");
+    var feeWei = BigInt(gas) * BigInt(gasPrice);
+    var feeBnb = Number(feeWei) / 1e18;
+    log("Estimasi gas: " + parseInt(gas, 16) + " | gas price: " + (Number(BigInt(gasPrice)) / 1e9) + " gwei | fee: ~" + feeBnb.toFixed(6) + " BNB");
+    if(feeWei > FEE_CAP_WEI){
+      setStatus("STOP: fee perkiraan " + feeBnb.toFixed(6) + " BNB melebihi batas 0.00019 BNB. Jangan lanjut.");
+      $("btnDeploy").disabled = false;
+      return;
+    }
+    setStatus("Fee OK (~" + feeBnb.toFixed(6) + " BNB). Mengirim transaksi — konfirmasi di wallet...");
+    var txHash = await rpc("eth_sendTransaction", [{from: account, data: DEPLOY_DATA, value: "0x0"}]);
+    log("Tx hash: " + txHash);
+    log("BscScan: https://bscscan.com/tx/" + txHash);
+    setStatus("Transaksi terkirim: " + txHash + " — menunggu konfirmasi...");
+    for(var i = 0; i < 40; i++){
+      await new Promise(function(r){ setTimeout(r, 3000); });
+      var rc = await rpc("eth_getTransactionReceipt", [txHash]);
+      if(rc){
+        var ok = rc.status === "0x1";
+        log("Receipt: status " + (ok ? "SUKSES" : "GAGAL") + " | kontrak: " + rc.contractAddress + " | blok: " + parseInt(rc.blockNumber, 16) + " | gas dipakai: " + parseInt(rc.gasUsed, 16));
+        setStatus(ok ? ("DEPLOY BERHASIL! Alamat kontrak: " + rc.contractAddress + " — kirim alamat ini ke Muse.") : "Transaksi GAGAL (status 0). Kirim tx hash ke Muse.");
+        return;
+      }
+    }
+    setStatus("Belum ada receipt setelah ~2 menit. Tx hash: " + txHash + " — cek di BscScan.");
+  }catch(e){
+    if(e && e.code === 4001){ setStatus("Dibatalkan di wallet. Tidak ada transaksi yang dikirim."); }
+    else { setStatus("Error: " + (e && e.message ? e.message : e)); log("Error: " + JSON.stringify(e)); }
+    $("btnDeploy").disabled = false;
+  }
+}
+
+$("btnConnect").addEventListener("click", connect);
+$("btnDeploy").addEventListener("click", deploy);
+</script>
+</body>
+</html>
