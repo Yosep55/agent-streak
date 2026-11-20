@@ -37,8 +37,7 @@ var BSC_CHAIN_ID = "0x38";
 var account = null;
 
 function $(id){ return document.getElementById(id); }
-function log(msg){ $("log").textContent += msg + "
-"; }
+function log(msg){ $("log").textContent += msg + String.fromCharCode(10); }
 function setStatus(msg){ $("status").textContent = msg; }
 function rpc(method, params){ return window.ethereum.request({method: method, params: params || []}); }
 
